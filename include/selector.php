@@ -33,7 +33,7 @@ if ( empty($dbhost) ) {
 }
 
 $selector = getenv('SELECTOR');
-// if theme not set by client then determine active theme default to cats
+// if theme not set by client then determine active theme default to pets
 if ( empty($_SESSION['SELECTOR']) ) { 
 
     if ( !empty($selector) ) {
@@ -42,9 +42,9 @@ if ( empty($_SESSION['SELECTOR']) ) {
         $ini_array = parse_ini_file($ini_file);     
         $_SESSION['SELECTOR'] = $ini_array['selector'];
     } elseif ( $_SESSION['V2'] == 'true' )  {
-        $_SESSION['SELECTOR'] = 'cats';
+        $_SESSION['SELECTOR'] = 'pets';
     } else {
-        $_SESSION['SELECTOR'] = 'cats';
+        $_SESSION['SELECTOR'] = 'pets';
     }
 
 }                                     
