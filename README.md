@@ -56,24 +56,17 @@ To experiment with an A/B deployment scenario, follow the instructions in the bl
 ## Developing on the fly in Openshift3
 
 Edit the buildconfig:
-
-    -- change from Git to binary
-    source:
-      type: Git
-      git:
-        uri: 'https://github.com/eformat/cotd.git'
-      secrets: null
-
-    -- to this
-    source:
-      type: Binary
-
-    -- then build with
-    oc start-build --from-dir=. cotd
-
+```
+ oc export bc/cotd  | sed s/Source/Binary/ | oc replace -f -
+ ```
+ then build with
+ ```
+ oc start-build --from-dir=. cotd
+```
 You may also wish to enable live reload for php image (don't do this in prod)
-
-    oc set env dc/cotd OPCACHE_REVALIDATE_FREQ=0
+```
+oc set env dc/cotd OPCACHE_REVALIDATE_FREQ=0
+```
 
 ## Parse the pods running statistics
 
