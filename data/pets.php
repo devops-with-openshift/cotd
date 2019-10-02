@@ -65,7 +65,7 @@ $i = 8;
 $_SESSION['item'][$i]['name'] = 'snuggles';
 $_SESSION['item'][$i]['caption'] = 'Snuggles';
 $_SESSION['item'][$i]['rank'] = 9;
-$_SESSION['item'][$i]['trivia'] = "Hi, my name is Snuggles. Hi, my name is Snuggles. I just completed a course in CKAD. I'm now trying to pass the certification exam so I can be a Kubernetes expert. Wish me luck!";
+$_SESSION['item'][$i]['trivia'] = "Hi, my name is Snuggles. Hi, my name is Snuggles. I just completed a course in CKA. I'm now trying to pass the certification exam so I can be a Kubernetes Administrator expert. Wish me luck!";
 $_SESSION['item'][$i]['filename'] = 'data/images/pets/snuggles.jpg';
 
 $i = 9;
