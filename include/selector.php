@@ -1,6 +1,6 @@
 <?php
 
-$ini_file = '/etc/config/cotd.properties';  
+$ini_file = '/etc/config/cotd.properties';
 
 $dbv2 = getenv('OPENSHIFT_MYSQL_DB_HOST');
 $dbv3 = getenv('DBHOST');
@@ -34,12 +34,12 @@ if ( empty($dbhost) ) {
 
 $selector = getenv('SELECTOR');
 // if theme not set by client then determine active theme default to pets
-if ( empty($_SESSION['SELECTOR']) ) { 
+if ( empty($_SESSION['SELECTOR']) ) {
 
     if ( !empty($selector) ) {
         $_SESSION['SELECTOR'] = getenv('SELECTOR');
     } elseif ( file_exists($ini_file) ) {
-        $ini_array = parse_ini_file($ini_file);     
+        $ini_array = parse_ini_file($ini_file);
         $_SESSION['SELECTOR'] = $ini_array['selector'];
     } elseif ( $_SESSION['V2'] == 'true' )  {
         $_SESSION['SELECTOR'] = 'pets';
@@ -47,7 +47,7 @@ if ( empty($_SESSION['SELECTOR']) ) {
         $_SESSION['SELECTOR'] = 'pets';
     }
 
-}                                     
+}
 
 if ( !empty($_SESSION['service']) ) {
     $service = $_SESSION['service'];
@@ -65,7 +65,7 @@ if ( !empty($service) ) {
 } else {
     // Unsupported theme so default to pets
     $_SESSION['SELECTOR'] = 'pets';
-    include('data/pets.php');
+    include('data/cities.php');
 }
 
 // Set up page next and prev
