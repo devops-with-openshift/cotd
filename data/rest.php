@@ -4,21 +4,21 @@
 
 $service_url = 'http://'.getenv('SERVICE').':8080/rest_items.json';
 
-$curl = curl_init($service_url);                                                                                                                           
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); 
+$curl = curl_init($service_url);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 
-$response = curl_exec($curl); 
-if ($curl_response === false) { 
-    $info = curl_getinfo($curl); 
+$response = curl_exec($curl);
+if ($curl_response === false) {
+    $info = curl_getinfo($curl);
     curl_close($curl);
-    $_SESSION['message'] = "error occured during curl exec. Additioanl info: ". var_export($info);
+    $_SESSION['message'] = "error occured during curl exec. Additional info: ". var_export($info);
     header('Location: /error.php');
     die();
 }
 curl_close($curl);
 
-$response = json_decode($response, true);  
+$response = json_decode($response, true);
 
 $_SESSION['item'] = array();
 
@@ -40,10 +40,10 @@ foreach ($response['items'] as $item) {
     if ( $selector == $theme ) {
         $_SESSION['item'][$i] = array(
             'name' => $name,
-            'theme' => $theme,      
+            'theme' => $theme,
             'rank' => $rank,
             'caption' => $caption,
-            'trivia' => $trivia, 
+            'trivia' => $trivia,
             'filename' => $filename,
             'prev' => $name,
             'next' => $name,
